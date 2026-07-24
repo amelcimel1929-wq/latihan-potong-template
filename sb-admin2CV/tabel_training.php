@@ -34,6 +34,11 @@ $select_training = mysqli_query($koneksi, "SELECT * FROM training ORDER BY id_tr
                         <h1 class="h3 mb-0 text-gray-800">Training</h1>
                     </div>
 
+                    
+                    <a href="form_training.php" class="btn btn-info mb-2">
+                        Add
+                    </a>
+
                     <!-- Content Start -->
                     <table class="table table-striped">
                         <thead>

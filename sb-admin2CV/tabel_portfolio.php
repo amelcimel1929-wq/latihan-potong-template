@@ -1,15 +1,15 @@
+<!-- ini adalah langkah ketiga setelah dari file action_insert_portfolio.php -->
+<!-- disini adalah langkah untuk menampilkan data dr database ke tampilan versi web  -->
+ <!-- pertama tama panggil koneksi database -->
 <?php
 
 include "connection.php";
-
+// kedua buat perintah sql/query ke database untuk menampilkan data
 $select_portfolio = mysqli_query(
     $koneksi,
     "SELECT * FROM portfolio ORDER BY id_portfolio DESC"
 );
-
-if (!$select_portfolio) {
-    die("Query error: " . mysqli_error($koneksi));
-}
+// ketiga, buat perulangan di dalam <tbody> di bawah ini
 
 ?>
 
@@ -45,6 +45,7 @@ if (!$select_portfolio) {
                         </h1>
 
                     </div>
+                    <!--ke empat, tambahkan tombol tambah untuk mengarahkan ke file form_portfolio.php-->
                     <a href="form_portfolio.php" class="btn btn-info mb-2">
                         Add
                     </a>
@@ -70,50 +71,40 @@ if (!$select_portfolio) {
                         </thead>
 
                         <tbody>
-
-                            <?php while ($tampil = mysqli_fetch_object($select_portfolio)) : ?>
+                            <!-- perulangan -->
+                            <?php
+                            // mysqli_fetch_object menggunakan <?php $tampil->nama;
+                            // mysqli_fetch_array menggunakan <?php $tampil['nama'];
+                             while ($tampil = mysqli_fetch_object($select_portfolio)) : ?>
 
                                 <tr>
-
+                                    <th scope="row"><?php echo
+                                    $tampil->judul_portfolio; ?></th>
                                     <td>
-                                        <?php echo $tampil->judul_portfolio; ?>
+                                        <img src="foto/<?php echo $tampil->img; ?>"
+                                        alt="" width="100">
                                     </td>
-
-                                    <td>
-                                        <?php echo $tampil->img; ?>
-                                    </td>
-
                                     <td>
                                         <?php echo $tampil->link; ?>
                                     </td>
-
                                     <td>
                                         <?php echo $tampil->deskripsi; ?>
                                     </td>
-
                                     <td>
                                         <?php echo $tampil->jenis; ?>
                                     </td>
-
                                     <td>
-
                                         <a href="delete_portfolio.php?id_portfolio=<?php echo $tampil->id_portfolio; ?>"
                                            class="btn btn-danger btn-sm"
                                            onclick="return confirm('Confirm to delete?')">
-
                                             DELETE
-
                                         </a>
 
                                         <a href="update_form_portfolio.php?id_portfolio=<?php echo $tampil->id_portfolio; ?>"
                                            class="btn btn-success btn-sm">
-
                                             UPDATE
-
                                         </a>
-
                                     </td>
-
                                 </tr>
 
                             <?php endwhile; ?>

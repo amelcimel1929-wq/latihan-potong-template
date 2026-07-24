@@ -25,35 +25,21 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">portfolio</h1>
+                        <h1 class="h3 mb-0 text-gray-800">mobilee</h1>
                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
                     <!-- content start -->
-                     <form action="action_insert_portfolio.php" method="post"
-                     enctype="multipart/form-data">
+                     <form action="action_insert_mobile.php" method="post">
                         <div class="mb-3">
-                            <label for="judul_portfolio" class="form_label"> Title </label>
-                            <input type="text" class="form-control" id="judul_portfolio" name="judul_portfolio">
-                        </div>
-                        <div class="mb-3">
-                            <label for="img" class="form_label"> Image</label>
-                            <input type="file" class="form-control" id="img" name="img">
+                            <label for="nama" class="form_label"> Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama">
                         </div>
                         <div class="mb-3">
-                            <label for="link" class="form_label"> Link </label>
-                            <input type="text" class="form-control" id="link" name="link">
+                            <label for="icon" class="form_label"> Icon</label>
+                            <input type="text" class="form-control" id="icon" name="icon">
                         </div>
-                        <div class="mb-3">
-                            <label for="deskripsi" class="form_label"> Description </label>
-                            <textarea name="deskripsi" id="deskripsi" cols="30" class="form-control" rows="10"></textarea>
-                        </div>
-                         <div class="mb-3">
-                            <label for="jenis" class="form_label"> Type </label>
-                            <input type="text" class="form-control" id="jenis" name="jenis">
-                        </div>
-
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                      </form>
