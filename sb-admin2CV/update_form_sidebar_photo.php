@@ -57,8 +57,7 @@ $id_sidebar_foto = mysqli_fetch_object($select_id);
                                 type="file"
                                 class="form-control"
                                 id="sidebar_foto"
-                                name="sidebar_photo"
-                                required>
+                                name="sidebar_photo">
 
                         </div>
 

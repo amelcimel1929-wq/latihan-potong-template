@@ -2,43 +2,34 @@
 include "connection.php";
 
 $id_sidebar_foto = $_POST['id_sidebar_foto'];
-
-$namaimage = time() .".jpg";
-
 $path = "foto/";
 
-// UPDATE  tanpa foto. yg mau di update adlh keterangan saja selain foto. maka kita buat kondisi IF ELSE
-// if (empty($_FILES['img']['name'])) {
-   // $sql_update_sidebar_photo_no_image = mysqli_query($koneksi, "UPDATE sidebar_photo SET 
-   // sidebar_photo='$namaimage' WHERE id_sidebar_photo='$id_sidebar_photo'");
-   // header("Location:tabel_sidebar_photo.php");
-//  else {
-    // UPDATE dengan foto. yg mau di update adlh keterangan dan foto. maka kita buat kondisi IF ELSE
-    // untuk mengupload foto digunakan fungsi move_uploaded_file() 
-    // upload foto baru yg disesuaikan dari file update_form_portfolio.php
+// hanya proses ganti foto kalau user memilih file baru
+if (!empty($_FILES['sidebar_photo']['name'])) {
+
+    // pakai ekstensi asli file yg diupload, jangan dipaksa .jpg
+    $ekstensi = pathinfo($_FILES['sidebar_photo']['name'], PATHINFO_EXTENSION);
+    $namaimage = time() . "." . $ekstensi;
     move_uploaded_file($_FILES['sidebar_photo']['tmp_name'], $path . $namaimage);
-    
-    // hapus foto lama start
+
+    // ambil nama foto lama sebelum di-overwrite di database
     $imgsidebar_photo = mysqli_query($koneksi, "SELECT * FROM sidebar_photo WHERE
-    id_sidebar_foto IN ('$id_sidebar_foto')");
-   
+    id_sidebar_foto = '$id_sidebar_foto'");
+    $img = mysqli_fetch_object($imgsidebar_photo);
 
-    // tampilkan foto
-    $img= mysqli_fetch_object($imgsidebar_photo);
-    $path = "foto/";
+    $sql_update_sidebar_photo = mysqli_query($koneksi, "UPDATE sidebar_photo SET
+    sidebar_photo='$namaimage' WHERE id_sidebar_foto='$id_sidebar_foto'");
 
-    // is_file gunanya untuk mengecek apakah file ada atau tidak. jika ada maka akan dihapus\
-    // is_file() untuk mengecek terlebih dahulu file di folder foto sebelum di hapus
-    // unlink() untuk menghapus file foto lama di folder foto
+    if (!$sql_update_sidebar_photo) {
+        die("Gagal update: " . mysqli_error($koneksi));
+    }
+
+    // hapus foto lama baru setelah update berhasil, biar data gak hilang kalau query gagal
     if (is_file($path . $img->sidebar_photo)) {
         unlink($path . $img->sidebar_photo);
     }
-    // hapus foto lama end
+}
 
-    // update dgn menggunakan foto dgn menambahkan img='$namimage'
-    $sql_update_sidebar_photo_no_img  = mysqli_query($koneksi, "UPDATE sidebar_photo SET
-    sidebar_photo='$namaimage' WHERE id_sidebar_foto='$id_sidebar_foto'");
-
-    header("Location:tabel_sidebar_photo.php");
-    
+header("Location:tabel_sidebar_photo.php");
+exit;
 ?>

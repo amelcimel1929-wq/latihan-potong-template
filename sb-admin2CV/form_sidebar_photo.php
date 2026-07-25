@@ -32,7 +32,7 @@
 
                     <!-- content start -->
 
-                <form action="action_update_sidebar_photo.php" method="post"
+                <form action="action_insert_sidebar_photo.php" method="post"
                     enctype="multipart/form-data">
 
                     <div class="mb-3">
