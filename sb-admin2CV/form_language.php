@@ -31,14 +31,14 @@
                     </div>
 
                     <!-- content start -->
-                     <form action="action_insert_language.php" method="post" >
+                     <form action="action_insert_language.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="language" class="form_label"> Language </label>
                             <input type="text" class="form-control" id="language" name="bahasa">
                         </div>
                         <div class="mb-3">
                             <label for="flag" class="form_label"> Flag</label>
-                            <input type="text" class="form-control" id="flag" name="flag">
+                            <input type="file" class="form-control" id="flag" name="flag">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>

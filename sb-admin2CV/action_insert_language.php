@@ -9,7 +9,7 @@ $vlanguage = $_POST['bahasa'];
 $flagimage = time() . ".jpg";
 
 // untuk menyimpan file foto yang nanti tambahkan dari file form_portfolio
-$path = "flag/";
+$path = "fotobende/";
 
 // mysqli_query adalah perintah utk menyatukan koneksi database dengan query tabel.
 // (bahasa) adalah nama2 kolom database
@@ -21,7 +21,7 @@ move_uploaded_file($_FILES['flag']['tmp_name'], $path . $flagimage);
 $sql_insert = mysqli_query(
     $koneksi,
     "INSERT INTO language(bahasa, flag)
-    VALUES ('$vlanguage', '$vflag')"
+    VALUES ('$vlanguage', '$flagimage')"
 );
 
 // header location untuk mengarahkan halaman ke tabel_language
