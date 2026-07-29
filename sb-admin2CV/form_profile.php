@@ -68,7 +68,7 @@
                         <div class="mb-3">
                             <label for="linkedin" class="form-label"> Linkedin
                             </label>
-                            <input type="linkedin" class="form-control" id="linkedin" name="linkedin">
+                            <input type="text" class="form-control" id="linkeid" name="linkeid">
                         </div> 
                         <div class="mb-3">
                             <label for="nationality" class="form-label"> Nationality

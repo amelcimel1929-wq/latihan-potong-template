@@ -34,14 +34,15 @@
                      <form action="action_insert_mobile.php" method="post">
                         <div class="mb-3">
                             <label for="nama" class="form_label"> Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
+                            <input type="text" class="form-control" id="nama" name="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form_label"> Icon</label>
-                            <input type="text" class="form-control" id="icon" name="icon">
+                            <input type="text" class="form-control" id="icon" name="icon" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
                      </form>
 
 

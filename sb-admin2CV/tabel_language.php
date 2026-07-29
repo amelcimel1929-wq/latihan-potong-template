@@ -56,6 +56,7 @@ if (!$select_language) {
                             <tr>
                                 <th>No</th>
                                 <th>Language</th>
+                                <th>Level</th>
                                 <th>Flag</th>
                                 <th width="180">Action</th>
                             </tr>
@@ -72,6 +73,8 @@ if (!$select_language) {
                                     <td><?php echo $no++; ?></td>
 
                                     <td><?php echo $tampil->bahasa; ?></td>
+
+                                    <td><?php echo $tampil->level; ?></td>
 
                                     <td>
                                         <img src="fotobende/<?php echo $tampil->flag; ?>"

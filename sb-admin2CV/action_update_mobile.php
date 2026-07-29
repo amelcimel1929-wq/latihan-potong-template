@@ -1,11 +1,12 @@
 <?php
-include "conection.php";
+include "connection.php";
 
 $id_mobile = $_POST['id_mobile'];
 $vnama=$_POST['nama'];
-$vicon=$_POST['icon'];
+$vicon = $_POST['icon'];
 
-$update_mobile=mysqli_query($koneksi, "UPDATE mobile SET nama='$nama',
-icon='$vicon' WHERE id_mobile='$id_mobile'");
+$update_mobile=mysqli_query($koneksi, "UPDATE mobile SET
+nama='$vnama', icon='$vicon' WHERE id_mobile='$id_mobile'");
 
-header("location:label_mobile.php");
+header("location:tabel_mobile.php");
+exit;

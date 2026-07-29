@@ -8,4 +8,5 @@ $sql_insert = mysqli_query($koneksi, "INSERT INTO mobile(nama,icon)
 values ('$vnama','$vicon')");
 
 header("location:tabel_mobile.php");
+exit;
 

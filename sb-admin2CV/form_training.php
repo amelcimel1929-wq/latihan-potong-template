@@ -53,6 +53,7 @@
 
 
                     <button type="submit" class="btn btn-primary">submit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
                 </form>
 
 

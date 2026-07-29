@@ -19,4 +19,5 @@ $update_familiar = mysqli_query($koneksi, "
 ");
 
 header("Location:tabel_familiar.php");
+exit;
 ?>

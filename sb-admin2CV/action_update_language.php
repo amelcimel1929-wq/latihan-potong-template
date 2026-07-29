@@ -7,6 +7,7 @@ include "connection.php";
 // update_form_language.php
 $id_language = $_POST['id_language'];
 $vlanguage = $_POST['bahasa'];
+$vlevel = $_POST['level'];
 $flagimage = time() . ".jpg";
 
 // utk menyimpan file foto yg nanti kita tambahkan dari form_language
@@ -18,7 +19,8 @@ if (empty($_FILES['flag']['name'])) {
     $sql_update_language_no_image = mysqli_query(
         $koneksi,
         "UPDATE language SET
-        bahasa='$vlanguage' WHERE id_language='$id_language'");
+        bahasa='$vlanguage',
+        level='$vlevel' WHERE id_language='$id_language'");
         header("Location:tabel_language.php");
 } else {
 
@@ -50,6 +52,7 @@ if (empty($_FILES['flag']['name'])) {
     $koneksi,
     "UPDATE language SET
     bahasa='$vlanguage',
+    level='$vlevel',
     flag='$flagimage'
     WHERE id_language='$id_language'");
 

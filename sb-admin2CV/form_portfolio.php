@@ -35,27 +35,29 @@
                      enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="judul_portfolio" class="form_label"> Title </label>
-                            <input type="text" class="form-control" id="judul_portfolio" name="judul_portfolio">
+                            <input type="text" class="form-control" id="judul_portfolio" name="judul_portfolio" required>
                         </div>
                         <div class="mb-3">
                             <label for="img" class="form_label"> Image</label>
-                            <input type="file" class="form-control" id="img" name="img">
+                            <input type="file" class="form-control" id="img" name="img" required>
                         </div>
                         <div class="mb-3">
                             <label for="link" class="form_label"> Link </label>
-                            <input type="text" class="form-control" id="link" name="link">
+                            <input type="url" class="form-control" id="link" name="link" placeholder="https://contoh.com" required>
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form_label"> Description </label>
-                            <textarea name="deskripsi" id="deskripsi" cols="30" class="form-control" rows="10"></textarea>
+                            <textarea name="deskripsi" id="deskripsi" cols="30" class="form-control" rows="10" required></textarea>
                         </div>
                          <div class="mb-3">
                             <label for="jenis" class="form_label"> Type </label>
-                            <input type="text" class="form-control" id="jenis" name="jenis">
+                            <input type="text" class="form-control" id="jenis" name="jenis" required>
                         </div>
 
 
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                      
                      </form>
 
 

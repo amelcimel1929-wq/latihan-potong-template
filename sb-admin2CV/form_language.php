@@ -31,17 +31,28 @@
                     </div>
 
                     <!-- content start -->
-                     <form action="action_insert_language.php" method="post" >
+                     <form action="action_insert_language.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="language" class="form_label"> Language </label>
-                            <input type="text" class="form-control" id="language" name="bahasa">
+                            <input type="text" class="form-control" id="language" name="bahasa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="level" class="form_label"> Level </label>
+                            <select class="form-control" id="level" name="level" required>
+                                <option value="">Pilih level</option>
+                                <option value="Pemula">Pemula</option>
+                                <option value="Menengah">Menengah</option>
+                                <option value="Mahir">Mahir</option>
+                                <option value="Sangat lancar">Sangat Lancar</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="flag" class="form_label"> Flag</label>
-                            <input type="text" class="form-control" id="flag" name="flag">
+                            <input type="file" class="form-control" id="flag" name="flag" required>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
                      </form>
 
 
