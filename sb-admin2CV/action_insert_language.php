@@ -11,7 +11,6 @@ $flagimage = time() . ".jpg";
 
 // untuk menyimpan file foto yang nanti tambahkan dari file form_portfolio
 $path = "fotobende/";
-$path = "fotobende/";
 
 // mysqli_query adalah perintah utk menyatukan koneksi database dengan query tabel.
 // (bahasa) adalah nama2 kolom database
