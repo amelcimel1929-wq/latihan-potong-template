@@ -38,16 +38,17 @@
                             nama
                         </label>
                         <input type="text" class="form-control"
-                        id="nama" name="nama">
+                        id="nama" name="nama" required>
                     </div>
                     <div class="mb-3">
                         <label for="icon" class="form-label">
                             icon</label>
                         <input type="text" class="form-control"
-                        id="nama" name="icon">
+                        id="icon" name="icon" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">submit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
                 </form>
 
                        

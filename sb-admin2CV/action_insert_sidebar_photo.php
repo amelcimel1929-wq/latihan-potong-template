@@ -4,7 +4,8 @@ include "connection.php";
 // $vnama untuk penyimpanan sedangkan $_POST menerima inputan
 // name="judul_portfolio" dr form_portfolio.php
 // untuk membuat nama secara random hrs menggunakan time(); dgn ekstensi ".jpg"
-$namaimage = time() . ".jpg";
+$ekstensi = pathinfo($_FILES['sidebar_photo']['name'], PATHINFO_EXTENSION);
+$namaimage = time() . "." . $ekstensi;
 
 // untuk menyimpan file foto yang nanti ditambahkan dari file form_portfolio
 $path = "foto/";
@@ -25,4 +26,5 @@ $sql_insert = mysqli_query(
 
 // header location untuk mengarahkan halaman ke tabel_profile
 header("Location:tabel_sidebar_photo.php");
+exit;
 ?>

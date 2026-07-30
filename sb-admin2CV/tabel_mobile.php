@@ -5,7 +5,7 @@ include "connection.php";
 // Ambil semua data dari tabel mobile
 $select_mobile = mysqli_query(
     $koneksi,
-    "SELECT * FROM mobile"
+    "SELECT * FROM mobile ORDER BY id_mobile DESC"
 );
 
 ?>
@@ -44,9 +44,7 @@ $select_mobile = mysqli_query(
 
                     <!-- Tombol Add -->
                     <a
-                        href="form_mobile.php"
-                        class="btn btn-info mb-2"
-                    >
+                        href="form_mobile.php" class="btn btn-info mb-2">
                         Add
                     </a>
 
@@ -108,7 +106,7 @@ $select_mobile = mysqli_query(
 
 
                                         <a
-                                            href="update_mobile.php?id_mobile=<?php echo $tampil->id_mobile; ?>"
+                                            href="update_form_mobile.php?id_mobile=<?php echo $tampil->id_mobile; ?>"
                                             class="btn btn-success"
                                         >
                                             UPDATE

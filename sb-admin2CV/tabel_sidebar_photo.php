@@ -4,7 +4,7 @@ include "connection.php";
 
 $select_sidebar_photo = mysqli_query(
     $koneksi,
-    "SELECT * FROM sidebar_photo");
+    "SELECT * FROM sidebar_photo ORDER BY id_sidebar_foto DESC");
 ?>
 
 <?php include "header.php" ?>
@@ -80,7 +80,7 @@ $select_sidebar_photo = mysqli_query(
                                 </td>
                               </tr>
                               <?php endwhile ?>
-                        </body>
+                        </tbody>
                     </table>
 
                     <!-- Content End -->
@@ -108,3 +108,4 @@ $select_sidebar_photo = mysqli_query(
     <?php include "bottom.php" ?>
 
 </body>
+</html>

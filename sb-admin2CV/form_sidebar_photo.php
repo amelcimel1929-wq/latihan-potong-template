@@ -40,11 +40,14 @@
                        Sidebar Photo
                        </label>
                        <input type="file" class="form-control" id="img"
-                       name="sidebar_photo">
+                       name="sidebar_photo" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">
                     Submit
+                    </button>
+                    <button type="reset" class="btn btn-primary">
+                    Reset
                     </button>
                 </form>
 

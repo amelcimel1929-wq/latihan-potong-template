@@ -1,5 +1,3 @@
-<!-- we are from tabel_profile -->
-
 <?php
 include "connection.php";
 
@@ -18,5 +16,6 @@ $delete = mysqli_query($koneksi, "
 
 // setelah proses delete dijalankan, maka akan kembali ke file
 // tabel_profile.php
-header("Location: tabel_familiar.php");
+header("Location:tabel_familiar.php");
+exit;
 ?>

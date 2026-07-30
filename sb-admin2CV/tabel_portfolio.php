@@ -85,7 +85,9 @@ $select_portfolio = mysqli_query(
                                         alt="" width="100">
                                     </td>
                                     <td>
-                                        <?php echo $tampil->link; ?>
+                                        <a href="<?php echo $tampil->link; ?>" target="_blank">
+                                            <?php echo $tampil->link; ?>
+                                        </a>
                                     </td>
                                     <td>
                                         <?php echo $tampil->deskripsi; ?>

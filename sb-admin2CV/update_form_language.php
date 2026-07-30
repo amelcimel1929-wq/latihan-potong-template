@@ -57,9 +57,20 @@ $language = mysqli_fetch_object($select_id);
                 <div class="mb-3">
                     <label for="language" class="form-label">Language</label>
                     <input type="text" class="form-control"
-                    id="language" name="bahasa" value="<?php echo $language->bahasa ?>">
+                    id="language" name="bahasa" value="<?php echo $language->bahasa ?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="level" class="form-label">Level</label>
+                    <select class="form-control" id="level" name="level" required>
+                        <option value="Pemula" <?php if ($language->level == 'Pemula') echo 'selected'; ?>>Pemula</option>
+                        <option value="Menengah" <?php if ($language->level == 'Menengah') echo 'selected'; ?>>Menengah</option>
+                        <option value="Mahir" <?php if ($language->level == 'Mahir') echo 'selected'; ?>>Mahir</option>
+                        <option value="Sangat lancar" <?php if ($language->level == 'Sangat lancar') echo 'selected'; ?>>Sangat Lancar</option>
+                    </select>
+                </div>
               
-                    <div class="mb-3">
+                <div class="mb-3">
                     <label for="flag" class="form-label">Flag</label>
                     <input type="file" class="form-control" id="flag"
                     name="flag" value="<?php echo $language->flag ?>">
