@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>curriculum vitae of cinta</title>
+  <title>cinta</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,32 +36,22 @@
   ======================================================== -->
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css" />
 
-<!-- Tooltip Start -->
+  <!-- Tooltip Start -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
-        integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC61eG/6mm1z9+mA81MT5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css">
 
-<style>
+  <style>
      #hero:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1; }
-</style>
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
+   </style>
 
 
 </head>
@@ -71,34 +61,33 @@
 <body>
 
   <!-- LETAK PEMANGGILAN DATA DI BACKEND MENGGUNAKAN PHP start here -->
- <?php
-include "../sb-admin2CV/connection.php";
+     <?php
+      include "../sb-admin2CV/connection.php";
 
-$tampil_profile = mysqli_query($koneksi, "SELECT * FROM profile");
-$p = mysqli_fetch_object($tampil_profile);
-?>
+       $tampil_profile = mysqli_query($koneksi, "SELECT * FROM profile");
+       $p = mysqli_fetch_object($tampil_profile);
+     ?>
 
    <!-- ======= Mobile nav toggle button ======= -->
    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-<header id="header" >
+   <header id="header" >
     
-<div class="d-flex flex-column">
+     <div class="d-flex flex-column">
 
       <div class="profile">
 
         <!-- menampilkan data foto sidebar start-->
-        <?php
-        include "backend/connection.php";
-        // FROM "profile" di bwh ini adalah nama tabel di dlm database
+       <?php
+        include "../sb-admin2CV/connection.php";
         $tampil_sidebar_photo = mysqli_query($koneksi, "SELECT* FROM
         sidebar_photo");
         $sb = mysqli_fetch_object($tampil_sidebar_photo);
-        ?>
+       ?>
 
        <!-- end -->
 
-        <img src="backend/foto/<?php echo $sb->sidebar_photo ?>" alt=""
+        <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo ?>" alt=""
         class="img-fluid rounded-circle">
         <!-- <h1 class="text-light"><a href="index.html">Alex Smith</a></h1> -->
         <h1 class="text-light"><a href="index.php"><?php echo $p->nama ?></a></h1>
@@ -108,8 +97,8 @@ $p = mysqli_fetch_object($tampil_profile);
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
-          <a href="<?php echo $p->linkedin ?>" class="linkedin" target="_blank"><i
-          class="bx bxl-linkedin"></i></a>
+          <a href="<?php echo $p->linkedin ?>" class="linkeid" target="_blank"><i
+          class="bx bxl-linkeid"></i></a>
         </div>
       </div>
 
@@ -125,8 +114,9 @@ $p = mysqli_fetch_object($tampil_profile);
              <!-- <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li> -->
            </ul>
         </nav><!-- .nav-menu-->
-</div>
-  </header>
+    </div>
+   </header>
+           <main class="main">
 
             <!-- ======= Hero Section ======= -->
             <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
@@ -138,7 +128,7 @@ $p = mysqli_fetch_object($tampil_profile);
 
             <main id="main">
 
-                <=== About Section ==>>
+                <!-- abaut section-->
               <section id="about" class="about">
                 <div class="container">
 
@@ -151,7 +141,7 @@ $p = mysqli_fetch_object($tampil_profile);
 
                       <div class="row">
                          <div class="col-lg-4" data-aos="fade-right">
-                           <img src="backend/foto/<?php echo $sb->sidebar_photo ?>" class="img-fluid" alt="" width="350">
+                           <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo ?>" class="img-fluid" alt="" width="350">
                          </div>
                          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                             <!-- <h3>UI/UX Designer &amp; Web Developer.</h3> -->
@@ -178,8 +168,8 @@ $p = mysqli_fetch_object($tampil_profile);
               </section><!-- end abaut section -->
 
                <!-- facts Section -->
-              <section id="facts" class="facts section">
-              <div class="container" >
+               <section id="facts" class="facts section">
+               <div class="container" >
 
         <!-- <div class="row gy-4">
 
@@ -215,7 +205,7 @@ $p = mysqli_fetch_object($tampil_profile);
             </div>
           </div> -->
 
-         </div> 
+               </div> 
 
       </div>
 
@@ -224,37 +214,39 @@ $p = mysqli_fetch_object($tampil_profile);
     <!-- Skills Section -->
     <section id="skills" class="skills section-bg">
 
+      
+
       <!-- Section Title -->
-      <div class="container">
-        <div class="section-title mb-4" style="color: grey;">
-        <h2 id="">it profesi</h2>
-        <h6 style="color:gray">progaming anguage</h6>
-        <p>
-        <h4 class="title"> </h4>
-        <p class="description"> 
-          <?php include "backend/connection.php";
-             // profile adalah nama tabel di database
-             $tampil_mobile = mysqli_query($koneksi, "SELECT * FROM mobile");
-             while ($m = mysqli_fetch_object($tampil_mobile)):
-          ?>
-                <!-- <i style="color:grey; font-size: 35px" class="<?php echo $m->icon; ?> m-3"></i> -->
-                <i style="font-size: 35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
-                data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function() {
-                  var tooltips = new bootstrap. Tooltip (document.querySelector('.<?php echo $m->icon ?>'));
-                  })
-                </script>
-            <?php endwhile; ?>
-        </p>
-        </p>
-      </div>
+      <div class="row text-start justify-content-start">
+        <div class="col-12 text-start">
+
+          <h2>keterampilan it</h2>
+            <div class="mb-4 text-start">
+              <div class="d-flex flex-warp align-items-center text-start">
+                <?php include "../sb-admin2CV/connection.php";
+                  // profile adalah nama tabel di database
+                  $tampil_mobile = mysqli_query($koneksi, "SELECT * FROM mobile");
+                  while ($m = mysqli_fetch_object($tampil_mobile)):
+                ?>
+               
+                     <i style="font-size: 35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
+                     data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                      var tooltips = new bootstrap.Tooltip (document.querySelector('.<?php echo $m->icon ?>'));
+                      })
+                    </script>
+                  <?php endwhile; ?>
+              </div>
+            </div>
+
+
       <div class="section-title mb-4">
            <h6 style="color:gray">FAMILIAR WITH</h6>
            <p>
             <h4 class="title"> </h4>
             <p class="description "> 
-              <?php include "backend/connection.php";
+              <?php include "../sb-admin2CV/connection.php";
                  // profile adalah nama tabel di database
                  $tampil_familiar = mysqli_query($koneksi, "SELECT * FROM familiar");
                 while ($m = mysqli_fetch_object($tampil_familiar)) :
@@ -267,7 +259,7 @@ $p = mysqli_fetch_object($tampil_profile);
                   <!-- JavaScript start -->
                   <script>
                     document.addEventListener('DOMContentLoaded', function() {
-                      var tooltips = new bootstrap. Tooltip(document.querySelector('.<?php echo $m->icon ?>')):
+                      var tooltips = new bootstrap.Tooltip(document.querySelector('.<?php echo $m->icon ?>'));
                     })
                   </script>
                   <!-- JavaScript end -->
@@ -281,7 +273,7 @@ $p = mysqli_fetch_object($tampil_profile);
          <h6>TOOLS & PLATFORMS</h6>
          <p>
              <h4 class="title"> </h4>
-            <p class="description"> <?php include "backend/connection.php";
+            <p class="description"> <?php include "../sb-admin2CV/connection.php";
                                 // profile adalah nama tabel di database
                                 $tampil_tools = mysqli_query($koneksi, "SELECT*FROM tools");
                               while ($m = mysqli_fetch_object($tampil_tools)):
@@ -290,72 +282,37 @@ $p = mysqli_fetch_object($tampil_profile);
                                   <i style="font-size: 35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
                                   <script>
                                      document.addEventListener('DOMContentLoaded', function() {
-                                       var tooltips = new bootstrap. Tooltip (document.querySelector('.<?php echo $m->icon ?>'));
+                                       var tooltips = new bootstrap.Tooltip (document.querySelector('.<?php echo $m->icon ?>'));
                                       })
                                   </script>
                               <?php endwhile; ?>
-             </p>
+            </p>
           </p>
       </div>
-      <div class="section-title mb-4">
-           <h6 style="color:gray">FAMILIAR WITH</h6>
-           <p>
-              <h4 class="title"> </h4>
-              <p class="description "> <?php include "backend/connection.php";
-                   // profile adalah nama tabel di database
-                    $tampil_familiar = mysqli_query($koneksi, "SELECT * FROM familiar");
-                    while ($m = mysqli_fetch_object($tampil_familiar)) :
-                    ?>
-                        <!-- <i style="color:grey; font-size: 35px" class="<?php echo $m->icon; ?> m-3"></i> -->
-                        <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3" data-bs-toggle="tooltip"                                           `   
-                        data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
+       <div class="section-title mt-4">
+              <h2>LANGUAGE PROFICIENCY</h2>
+                 <?php include "../sb-admin2CV/connection.php";
+                    // Menampilkan data language
+                    $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
+                 while ($l = mysqli_fetch_object($tampil_language)) :
+                  ?>
+                      <div class="row">
+                        <div class="col">
+                            <h6 class="skill" style="color: grey;">
+                             <?php echo $l->bahasa; ?>
+                            </h6>
+                        </div>
+                        <div class="col text-end">
+                          <img src="../sb-admin2CV/fotobende/<?php echo $l->flag; ?>"
+                          alt="<?php echo $l->bahasa; ?>"
+                          class="val"
+                          width="40">
+                        </div>
+                      </div>
 
-                        <!-- untuk memunculkan TOOLTIP per icon dibutuhkan JavaScript as below -->
-                        <!-- JavaScript start -->
-                       <script> 
-                          document.addEventListener('DOMContentLoaded', function() {
-                          var tooltips = new bootstrap.Tooltip(document.querySelector('.<?php echo  $m->icon ?>')):
-                          });
-                        </script>
-                        <!-- java scriot end -->
-                        <!-- next, we'll scrol down to end of the body -->
-
-                    <?php endwhile; ?>
-              </p>
-            </p>
+                 <?php endwhile; ?>
         </div>
-        <div class="section-title mt-4">
-    <h2>LANGUAGE PROFICIENCY</h2>
-
-    <?php
-    include "backend/connection.php";
-
-    // Menampilkan data language
-    $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
-
-    while ($l = mysqli_fetch_object($tampil_language)) :
-    ?>
-
-        <div class="row mb-3">
-            <div class="col">
-                <h6 class="skill" style="color: grey;">
-                    <?php echo $l->bahasa; ?>
-                </h6>
-            </div>
-
-            <div class="col text-end">
-                <img src="backend/fotobende/<?php echo $l->flag; ?>"
-                     alt="<?php echo $l->bahasa; ?>"
-                     class="val"
-                     width="40">
-            </div>
-        </div>
-
-    <?php endwhile; ?>
-
-</div>
-         
-            
+   
 
      
                     
