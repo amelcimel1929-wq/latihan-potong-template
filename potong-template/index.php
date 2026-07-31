@@ -570,6 +570,8 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 </script>
 
+
+
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
