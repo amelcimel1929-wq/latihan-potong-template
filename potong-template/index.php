@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-   <meta charset="utf-8">
+   
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>cinta</title>
   <meta content="" name="description">
@@ -11,6 +12,7 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -43,14 +45,163 @@
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css">
 
   <style>
-     #hero:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1; }
+   #hero{
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("assets/img/foto.jpg");
+    background-position:center;
+    background-size:cover;
+    background-attachment:fixed;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-container{
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-container h1{
+    color:white;
+    font-size:62px;
+    font-weight:700;
+}
+
+.hero-container p{
+    color:#f8f9fa;
+    font-size:24px;
+}
+
+.hero-container{
+    color:white;
+}
+
+.hero-container h1{
+    color:white;
+    font-size:62px;
+    font-weight:700;
+}
+
+.hero-container p{
+    color:#f8f9fa;
+    font-size:24px;
+}
+    .profile-img{
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #2b303b;
+    margin:auto;
+    display:block;
+   }
+
+   .profile-name{
+    text-align:center;
+    margin-top:15px;
+   }
+
+  .profile-name a{
+    color:white;
+    font-size:28px;
+    text-decoration:none;
+    font-weight:700;
+    line-height:1.3;
+   }
+  .social-links a{
+    pointer-events: auto;
+    cursor: pointer;
+}
+/* Menyesuaikan tampilan badge tahun agar persis seperti gambar */
+.resume .resume-item h5 {
+  background: #e4f3ff;
+  color: #0563bb;
+  padding: 4px 12px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Mengatur posisi dan warna teks instansi/lokasi */
+.resume .resume-item p em {
+  font-style: italic;
+  color: #444444;
+  font-weight: 500;
+}
+/* 1. Atur Bingkai Pembungkus Foto Supaya Tingginya Seragam */
+.portfolio-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f4f5f7; /* Warna latar belakang bingkai jika ada sisa ruang */
+  height: 260px;             /* Menentukan tinggi seragam untuk semua bingkai */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. Atur Gambar Agar Tetap Utuh (TIDAK CROP) */
+.portfolio-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;       /* KUNCI: Membuat foto utuh tanpa terpotong */
+  display: block;
+}
+
+/* 3. Efek Overlay Saat Kursor Diarahkan (Hover) */
+.portfolio-wrap .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65); /* Layar hitam transparan saat di-hover */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+}
+
+/* 4. Tampilan Tombol Icon Melayang */
+.portfolio-wrap .portfolio-links a {
+  color: #fff;
+  background: #149ddd;
+  margin: 0 5px;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.portfolio-wrap .portfolio-links a:hover {
+  background: #37b3ed;
+  transform: scale(1.1);
+}
+   
    </style>
 
 
@@ -69,12 +220,11 @@
      ?>
 
    <!--  Mobile nav toggle button -->
-   <i class="header-toggle bi bi-list d-xl-none"></i>
-   <header id="header" >
-    
-     <div class="d-flex flex-column">
+  <header id="header" class="header dark-background">
 
-      <div class="profile">
+    <div class="sidebar-content">
+
+      <div class="profile text-center">
 
         <!-- menampilkan data foto sidebar start-->
        <?php
@@ -86,22 +236,24 @@
 
        <!-- end -->
 
-        <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo ?>" alt=""
-        class="img-fluid rounded-circle">
+       <img src="../sb-admin2CV/foto/<?php echo $sb->sidebar_photo; ?>" class="profile-img" alt="Profile">
         <!-- <h1 class="text-light"><a href="index.html">Alex Smith</a></h1> -->
-        <h1 class="text-light"><a href="index.php"><?php echo $p->nama ?></a></h1>
+       <h1 class="profile-name">
+         <a href="index.php"><?php echo $p->nama; ?></a>
+       </h1>
     
         <div class="social-links mt-3 text-center">
           <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
-          <a href="<?php echo $p->linkedin ?>" class="linkeid" target="_blank"><i
-          class="bx bxl-linkeid"></i></a>
+        <a href="<?php echo $p->linkeid; ?>" target="_blank">
+          <i class="bx bxl-instagram"></i>
+        </a>
         </div>
       </div>
 
-        <nav id="navmenu" class="nav-menu navbar">
+        <nav id="navmenu" class="navmenu">
            <ul>
              <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
              <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Overview</span></a></li>
@@ -118,7 +270,11 @@
            <main class="main">
 
             <!-- ======= Hero Section ======= -->
-            <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+         <section id="hero"
+              style=" background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+              url('../sb-admin2CV/foto/<?php echo $sb->sidebar_photo; ?>');background-size:cover;
+              background-position:center;
+              background-repeat:no-repeat;">
              <div class="hero-container" data-aos="fade-in">
                <h1>cinta amelia</h1>
                <p>saya <span class="typed" data-typed-items="pekerja keras, baik banget, ramah"></span></p>
@@ -284,29 +440,30 @@
             </p>
           </p>
       </div>
-       <div class="section-title mt-4">
-              <h2>LANGUAGE PROFICIENCY</h2>
-                 <?php include "../sb-admin2CV/connection.php";
-                    // Menampilkan data language
-                    $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
-                 while ($l = mysqli_fetch_object($tampil_language)) :
-                  ?>
-                      <div class="row">
-                        <div class="col">
-                            <h6 class="skill" style="color: grey;">
-                             <?php echo $l->bahasa; ?>
-                            </h6>
-                        </div>
-                        <div class="col text-end">
-                          <img src="../sb-admin2CV/fotobende/<?php echo $l->flag; ?>"
-                          alt="<?php echo $l->bahasa; ?>"
-                          class="val"
-                          width="40">
-                        </div>
-                      </div>
+     <div class="section-title mt-4">
+  <h2>LANGUAGE PROFICIENCY</h2>
 
-                 <?php endwhile; ?>
-        </div>
+  <?php 
+  include "../sb-admin2CV/connection.php";
+  $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
+  while ($l = mysqli_fetch_object($tampil_language)) :
+  ?>
+    <!-- Menggunakan Flexbox agar teks dan bendera berdampingan secara langsung -->
+    <div class="d-flex align-items-center gap-3 my-2">
+      
+      <!-- Teks Bahasa -->
+      <h6 class="mb-0" style="color: grey; font-size: 16px; font-weight: 500;">
+        <?php echo $l->bahasa; ?>
+      </h6>
+
+      <!-- Gambar Bendera (Ukuran pas & rapat) -->
+      <img src="../sb-admin2CV/fotobende/<?php echo $l->flag; ?>"
+           alt="<?php echo $l->bahasa; ?>"
+           style="width: 45px; height: 30px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+
+    </div>
+  <?php endwhile; ?>
+</div>
         <div class="section-title mt-4">
           <h2>ADDITIONAL SKILLS</h2>
         </div>
@@ -376,144 +533,127 @@
     </section><!-- /Skills Section -->
 
 <!-- Resume Section -->
+<!-- Resume Section -->
+<!-- Resume Section -->
 <section id="resume" class="resume section">
-
   <div class="container">
+
+    <!-- Judul & Sub-judul Section -->
+    <div class="section-title">
+     
+    </div>
+
     <div class="row">
-      <div class="col-lg-12" data-aos="fade-up">
+      <?php include "../sb-admin2CV/connection.php"; ?>
 
-        <?php include "../sb-admin2CV/connection.php"; ?>
+      <!-- ==================== KOLOM KIRI: EDUCATION & TRAINING ==================== -->
+      <div class="col-lg-6" data-aos="fade-up">
 
-        <!-- SECTION: EDUCATION -->
-        <div class="section-title">
-          <h2 id="education">Education</h2>
-        </div>
+        <!-- 1. BAGIAN EDUCATION -->
+        <h3 class="resume-title" id="education">Education</h3>
 
         <?php 
         $tampil_education = mysqli_query($koneksi, "SELECT * FROM education ORDER BY id_education DESC");
         while($e = mysqli_fetch_object($tampil_education)) : 
         ?>
           <div class="resume-item">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h4><?php echo $e->nama_jurusan; ?></h4>
-                <p><em><?php echo $e->tempat_belajar; ?></em></p>
-                <p><?php echo $e->deskripsi; ?></p>
-              </div>
-              <!-- Memperbaiki tag h5 yang sebelumnya ditutup </p> -->
-              <h5><?php echo isset($e->tahun) ? $e->tahun : ''; ?></h5> 
-            </div>
+            <h4><?php echo $e->nama_jurusan; ?></h4>
+            <h5><?php echo isset($e->tahun) ? $e->tahun : ''; ?></h5>
+            <p><em><?php echo $e->tempat_belajar; ?></em></p>
+            <p><?php echo $e->deskripsi; ?></p>
           </div>
         <?php endwhile; ?>
 
 
-        <!-- SECTION: TRAINING -->
-        <div class="section-title mt-4">
-          <h2 id="training">Training</h2>
-        </div>
+        <!-- 2. BAGIAN TRAINING (DIMASUKKAN DI SINI) -->
+        <h3 class="resume-title mt-4" id="training">Training</h3>
 
         <?php
         $tampil_training = mysqli_query($koneksi, "SELECT * FROM training ORDER BY id_training DESC");
-        while ($e = mysqli_fetch_object($tampil_training)):     
+        while ($t = mysqli_fetch_object($tampil_training)):    
         ?>
           <div class="resume-item">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h4><?php echo $e->nama_training; ?></h4>
-                <p><em><?php echo $e->tempat_training; ?></em></p>
-                <p><?php echo $e->deskripsi; ?></p>
-              </div>
-              <h5><?php echo $e->tahun_training; ?></h5>
-            </div>
+            <h4><?php echo $t->nama_training; ?></h4>
+            <h5><?php echo $t->tahun_training; ?></h5>
+            <p><em><?php echo $t->tempat_training; ?></em></p>
+            <p><?php echo $t->deskripsi; ?></p>
           </div>
         <?php endwhile; ?>
 
+      </div>
 
-        <!-- SECTION: EXPERIENCE -->
-        <div class="section-title mt-5">
-          <h2 id="experience">Experience</h2>
-        </div>
+
+      <!-- ==================== KOLOM KANAN: PROFESSIONAL EXPERIENCE ==================== -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- 3. BAGIAN PROFESSIONAL EXPERIENCE -->
+        <h3 class="resume-title" id="experience">Professional Experience</h3>
 
         <?php
         $tampil_job = mysqli_query($koneksi, "SELECT * FROM job ORDER BY tahun_bekerja DESC");
-        while ($e = mysqli_fetch_object($tampil_job)):
+        while ($j = mysqli_fetch_object($tampil_job)):
         ?>
           <div class="resume-item">
-             <div class="d-flex justify-content-between align-items-start">
-                <div>
-                   <h4><?php echo $e->nama_pekerjaan; ?></h4>
-                   <p><em><?php echo $e->tempat_bekerja; ?></em></p>
-                   <ul>
-                      <li><?php echo $e->deskripsi; ?></li>
-                   </ul>
-                 </div>
-                    <h5><?php echo $e->tahun_bekerja; ?></h5>
-               </div>
+            <h4><?php echo $j->nama_pekerjaan; ?></h4>
+            <h5><?php echo $j->tahun_bekerja; ?></h5>
+            <p><em><?php echo $j->tempat_bekerja; ?></em></p>
+            <ul>
+              <li><?php echo $j->deskripsi; ?></li>
+            </ul>
           </div>
         <?php endwhile; ?>
 
       </div>
-    </div>
-  </div>
 
-</section><!-- /Resume Section -->
+    </div>
+
+  </div>
+</section><!-- /Resume Section --><!-- /Resume Section --><!-- /Resume Section -->
 
     <!-- Portfolio Section -->
    <!-- Portfolio Section -->
+<!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section-bg">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
 
-    <!-- Section Title -->
     <div class="section-title">
       <h2>Portfolio</h2>
-    </div><!-- End Section Title -->
+    </div>
 
-    <div class="container">
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-        <?php
-        include "../sb-admin2CV/connection.php";
-        
-        // Loop 1: Menampilkan semua portfolio
-        $tampil_portfolio = mysqli_query($koneksi, "SELECT * FROM portfolio ORDER BY id_portfolio DESC");
-        while ($pf = mysqli_fetch_object($tampil_portfolio)):
-        ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="../sb-admin2CV/foto/<?php echo $pf->img; ?>" class="img-fluid" alt="<?php echo $pf->judul_portfolio; ?>">
+      <?php
+      include "../sb-admin2CV/connection.php";
+      
+      // Ambil data dari database (cukup 1x loop saja)
+      $tampil_portfolio = mysqli_query($koneksi, "SELECT * FROM portfolio ORDER BY id_portfolio DESC");
+      while ($pf = mysqli_fetch_object($tampil_portfolio)):
+      ?>
+        <div class="col-lg-4 col-md-6 portfolio-item">
+          <div class="portfolio-wrap">
+            
+            <!-- Gambar Portfolio -->
+            <img src="../sb-admin2CV/foto/<?php echo $pf->img; ?>" class="img-fluid" alt="Portfolio Image">
+
+            <!-- Lapisan Overlay & Tombol Icon (Muncul saat di-hover) -->
+            <div class="portfolio-info">
+              <h4><?php echo isset($pf->judul_portfolio) ? $pf->judul_portfolio : ''; ?></h4>
               <div class="portfolio-links">
-                <a href="../sb-admin2CV/foto/<?php echo $pf->img; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $pf->judul_portfolio; ?>">
+                <!-- Icon Plus (Zoom Gambar) -->
+                <a href="../sb-admin2CV/foto/<?php echo $pf->img; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Zoom">
                   <i class="bx bx-plus"></i>
                 </a>
-                <a href="<?php echo trim($pf->link); ?>" target="_blank" rel="noopener noreferrer" title="More Details">
+                <!-- Icon Link (Buka Tautan/Website) -->
+                <a href="<?php echo trim($pf->link); ?>" target="_blank" rel="noopener noreferrer" title="Buka Link">
                   <i class="bx bx-link"></i>
                 </a>
               </div>
             </div>
-          </div>
-        <?php endwhile; ?>
 
-        <?php 
-        // Loop 2: Menampilkan khusus portfolio jenis 'web'
-        $tampil_web = mysqli_query($koneksi, "SELECT * FROM portfolio WHERE jenis = 'web'");
-        while ($pf = mysqli_fetch_object($tampil_web)):
-        ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="../sb-admin2CV/foto/<?php echo $pf->img; ?>" class="img-fluid" alt="<?php echo $pf->judul_portfolio; ?>">
-              <div class="portfolio-links">
-                <a href="../sb-admin2CV/foto/<?php echo $pf->img; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?php echo $pf->judul_portfolio; ?>">
-                  <i class="bx bx-plus"></i>
-                </a>
-                <a href="<?php echo trim($pf->link); ?>" target="_blank" rel="noopener noreferrer" title="More Details">
-                  <i class="bx bx-link"></i>
-                </a>
-              </div>
-            </div>
           </div>
-        <?php endwhile; ?>
+        </div>
+      <?php endwhile; ?>
 
-      </div>
     </div>
   </div>
 </section><!-- /Portfolio Section -->
