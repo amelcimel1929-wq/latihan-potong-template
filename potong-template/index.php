@@ -369,39 +369,44 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section-bg">
 
-      
-
       <!-- Section Title -->
-      <div class="container">
-        <div class="col-12 text-start">
+      <div class="container" data-aos="fade-up">
 
-          <h2>keterampilan it</h2>
-            <div class="mb-4 text-start">
-            <div class="d-flex flex-wrap align-items-center text-start">
-                <?php include "../sb-admin2CV/connection.php";
-                  // profile adalah nama tabel di database
-                  $tampil_mobile = mysqli_query($koneksi, "SELECT * FROM mobile");
-                  while ($m = mysqli_fetch_object($tampil_mobile)):
-                ?>
-               
-                     <i style="font-size: 35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
-                     data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $m->nama ?>"></i>
-                    
-                  <?php endwhile; ?>
-              </div>
+         <!-- Judul Utama (Disamakan Style-nya dengan LANGUAGE PROFICIENCY) -->
+         <div class="section-title">
+           <h2>KETERAMPILAN IT</h2>
+         </div>
+
+    <!-- Sub Section 1: PROGRAMMING LANGUAGE & FRAMEWORK -->
+         <div class="mb-4">
+            <h6 style="color: grey; font-weight: 600; letter-spacing: 1px;" class="mb-3">
+             PROGRAMMING LANGUAGE & FRAMEWORK
+            </h6>
+            <div class="d-flex flex-wrap align-items-center">
+               <?php 
+                 include "../sb-admin2CV/connection.php";
+                 $tampil_mobile = mysqli_query($koneksi, "SELECT * FROM mobile");
+                 while ($m = mysqli_fetch_object($tampil_mobile)):
+               ?>
+                <i style="font-size: 35px" 
+                class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="<?php echo $m->nama; ?>"></i>
+                <?php endwhile; ?>
             </div>
+         </div>
 
-
-      <div class="section-title mb-4">
-           <h6 style="color:gray">FAMILIAR WITH</h6>
-           <p>
-            <hd class="title"> </hd>
-            <p class="description "> 
-              <?php include "../sb-admin2CV/connection.php";
-                 // profile adalah nama tabel di database
-                 $tampil_familiar = mysqli_query($koneksi, "SELECT * FROM familiar");
-                while ($m = mysqli_fetch_object($tampil_familiar)) :
-              ?>
+         <div class="section-title mb-4">
+            <h6 style="color:gray">FAMILIAR WITH</h6>
+            <p>
+              <hd class="title"> </hd>
+              <p class="description "> 
+                <?php include "../sb-admin2CV/connection.php";
+                   // profile adalah nama tabel di database
+                   $tampil_familiar = mysqli_query($koneksi, "SELECT * FROM familiar");
+                   while ($m = mysqli_fetch_object($tampil_familiar)) :
+                ?>
                   <!-- <i style="color:grey; font-size: 35px" class="<?php echo $m->icon; ?> m-3"></i> -->
                   <i style="font-size:35px" class="icon-with-tooltip <?php echo $m->icon; ?> colored m-3"
                   data-bs-toggle="tooltip"
@@ -416,15 +421,15 @@
                   <!-- JavaScript end -->
                   <!-- NEXT, we'll scrolldown to end of the body. -->
                   <!-- In order to memunculkan TOOLTIP text di semua icon, tambahkan JavaScr -->
-                <?php endwhile; ?>
+                  <?php endwhile; ?>
+              </p>
             </p>
-           </p>
-      </div>
-      <div class="section-title mb-4" style="color: grey;">
-         <h6>TOOLS & PLATFORMS</h6>
-         <p>
-             <h4 class="title"> </h4>
-            <p class="description"> <?php include "../sb-admin2CV/connection.php";
+          </div>
+          <div class="section-title mb-4" style="color: grey;">
+              <h6>TOOLS & PLATFORMS</h6>
+              <p>
+                <h4 class="title"> </h4>
+                <p class="description"> <?php include "../sb-admin2CV/connection.php";
                                 // profile adalah nama tabel di database
                                 $tampil_tools = mysqli_query($koneksi, "SELECT*FROM tools");
                               while ($m = mysqli_fetch_object($tampil_tools)):
@@ -437,33 +442,40 @@
                                       })
                                   </script>
                               <?php endwhile; ?>
-            </p>
-          </p>
-      </div>
-     <div class="section-title mt-4">
-  <h2>LANGUAGE PROFICIENCY</h2>
+                 </p>
+              </p>
+          </div>
+          <div class="section-title mt-4">
+             <div class="section-title mt-4">
+                 <h2>LANGUAGE PROFICIENCY</h2>
 
-  <?php 
-  include "../sb-admin2CV/connection.php";
-  $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
-  while ($l = mysqli_fetch_object($tampil_language)) :
-  ?>
-    <!-- Menggunakan Flexbox agar teks dan bendera berdampingan secara langsung -->
-    <div class="d-flex align-items-center gap-3 my-2">
-      
-      <!-- Teks Bahasa -->
-      <h6 class="mb-0" style="color: grey; font-size: 16px; font-weight: 500;">
-        <?php echo $l->bahasa; ?>
-      </h6>
+                   <!-- Wadah utama diberi max-width agar benderanya tidak terlalu jauh ke ujung layar -->
+                     <div style="max-width: 600px;">
+                       <?php 
+                         include "../sb-admin2CV/connection.php";
+                         $tampil_language = mysqli_query($koneksi, "SELECT * FROM language ORDER BY id_language DESC");
+                         while ($l = mysqli_fetch_object($tampil_language)) :
+                        ?>
+                        <!-- justify-content-between: Teks ke KIRI, Bendera ke KANAN -->
+                            <div class="d-flex align-items-center justify-content-between my-4">
+        
+                               <!-- Teks Nama Bahasa (Format sesuai data ASLI di database) -->
+                                 <h5 class="mb-0" style="color: #6c757d; font-size: 18px; font-weight: 500; text-transform: none;">
+                                     <?php echo $l->bahasa; ?>
+                                </h5>
 
-      <!-- Gambar Bendera (Ukuran pas & rapat) -->
-      <img src="../sb-admin2CV/fotobende/<?php echo $l->flag; ?>"
-           alt="<?php echo $l->bahasa; ?>"
-           style="width: 45px; height: 30px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+                                <!-- Gambar Bendera Besar (Sebelah Kanan) -->
+                                <div style="width: 120px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                   <img src="../sb-admin2CV/fotobende/<?php echo $l->flag; ?>"
+                                       alt="<?php echo $l->bahasa; ?>"
+                                       style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                            </div>
+                            <?php endwhile; ?>
 
-    </div>
-  <?php endwhile; ?>
-</div>
+                      </div>
+                </div>
+          </div>
         <div class="section-title mt-4">
           <h2>ADDITIONAL SKILLS</h2>
         </div>
