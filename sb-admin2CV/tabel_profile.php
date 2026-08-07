@@ -76,7 +76,10 @@ $select_profile = mysqli_query($koneksi, "SELECT * FROM profile");
                                             <?php echo $tampil->about; ?>
                                         </td>
                                         <td>
-                                            <?php echo $tampil->website; ?>
+                                            <!-- Menjadikan teks website sebagai tautan aktif -->
+                                            <a href="<?php echo $tampil->website; ?>" target="_blank">
+                                               <?php echo $tampil->website; ?>
+                                            </a>
                                         </td>
                                         <td>
                                             <?php echo $tampil->phone; ?>
